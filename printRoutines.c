@@ -3,8 +3,7 @@
 #include <unistd.h>
 
 /*
-  You probably want to create a number of printing routines in this
-  file.  Put the prototypes in printRoutines.h.
+  Print routines corresponding to each instruction in Y-86 assembly
 */
 
 // print for .pos directive
