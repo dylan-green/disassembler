@@ -38,3 +38,11 @@ For instance, running `./disassembler test_files/sum_64.mem` will decode the exe
     nop      
     halt     
 ```
+
+The following diagrams describe the Y86-64 Instruction Set and byte translations
+
+![ISA set one](https://github.com/dylan-green/disassembler/blob/master/Y86-64/slide_1.jpg)
+
+![ISA set two](https://github.com/dylan-green/disassembler/blob/master/Y86-64/slide_2.jpg)
+
+![ISA set three](https://github.com/dylan-green/disassembler/blob/master/Y86-64/slide_3.jpg)
