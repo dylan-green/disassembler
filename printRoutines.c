@@ -29,8 +29,8 @@ int printHalt(FILE *out, int *nextBytes, long *address) {
 // print for nop
 int printNop(FILE *out) {
   int res = 0;
-  res += fprintf(out, "    %-8s", "nop");
-  res += fprintf(out, "%s\n", "       # 10");
+  res += fprintf(out, "    %-8s \n", "nop");
+  // res += fprintf(out, "%s\n", "       # 10");
   return res;
 }
 
