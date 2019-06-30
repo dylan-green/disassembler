@@ -2,6 +2,7 @@
 Interpreting bytecode and spitting out the Y-86 assembly that would generate it
 
 Run `make` to build and then `./disassembler [test-file] [output-file]` to run. 
+
 `[test-file]` is a `.mem` file, and `[output-file]` is an optional `.txt` file.
 The program will print to stdout if `[output-file]` is not provided.
 
