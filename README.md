@@ -6,9 +6,9 @@ Run `make` to build and then `./disassembler [test-file] [output-file]` to run.
 `[test-file]` is a `.mem` file, and `[output-file]` is optional.
 The program will print to stdout if `[output-file]` is not provided.
 
-The Y-86 that that generated the `.mem` bytecode can be found in the corresponding `.ys` file.
+The Y86-64 that that generated the `.mem` bytecode can be found in the corresponding `.ys` file.
 
-For instance, running `./disassembler test_files/sum_64.mem` will decode the executable bytecode and interpret it as Y-86 assembly, and print the following code to the desired output file.
+For instance, running `./disassembler test_files/sum_64.mem` will decode the executable bytecode and interpret it as Y86-64 assembly, and print the following code to the desired output file.
 
 ```
 .pos 0x100
