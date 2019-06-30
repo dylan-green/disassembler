@@ -46,3 +46,5 @@ The following diagrams describe the Y86-64 Instruction Set and byte translations
 ![ISA set two](https://github.com/dylan-green/disassembler/blob/master/Y86-64/slide_2.jpg)
 
 ![ISA set three](https://github.com/dylan-green/disassembler/blob/master/Y86-64/slide_3.jpg)
+
+![ISA set four](https://github.com/dylan-green/disassembler/blob/master/Y86-64/slide_4.jpg)
