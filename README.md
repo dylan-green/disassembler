@@ -1,5 +1,5 @@
 # disassembler
-Interpreting bytecode and spitting out the Y-86 assembly that would generate it
+Interpreting bytecode and spitting out the Y86-64 assembly that would generate it
 
 Run `make` to build and then `./disassembler [test-file] [output-file]` to run. 
 
