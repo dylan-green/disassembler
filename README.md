@@ -8,7 +8,7 @@ The program will print to stdout if `[output-file]` is not provided.
 
 The Y-86 that that generated the `.mem` bytecode can be found in the corresponding `.ys` file.
 
-For instance, running `./disassembler test_files/sum_64.mem` will decode the executable bytecode and interpret it as Y-86 assembly, and print the following code to the desired outpur file.
+For instance, running `./disassembler test_files/sum_64.mem` will decode the executable bytecode and interpret it as Y-86 assembly, and print the following code to the desired output file.
 
 ```
 .pos 0x100
