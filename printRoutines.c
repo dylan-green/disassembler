@@ -21,8 +21,8 @@ int printHalt(FILE *out, int *nextBytes, long *address) {
   if (nextBytes[0] < 0) {
     return 0;
   }
-  res += fprintf(out, "    %-8s", "halt");
-  res += fprintf(out, "%s\n", "       # 00");
+  res += fprintf(out, "    %-8s \n", "halt");
+  // res += fprintf(out, "%s\n", "       # 00");
   return res;
 }
 
@@ -37,8 +37,8 @@ int printNop(FILE *out) {
 // print for ret
 int printRet(FILE *out) {
   int res = 0;
-  res += fprintf(out, "    %-8s", "ret");
-  res += fprintf(out, "%s\n", "       # 90");
+  res += fprintf(out, "    %-8s \n", "ret");
+  // res += fprintf(out, "%s\n", "       # 90");
   return res;
 }
 
@@ -46,8 +46,7 @@ int printRet(FILE *out) {
 int printRRMovQ(FILE *out, char *r1, char *r2, int bigNibble, int littleNibble,
                 int *nextBytes, int bytesNeeded) {
   int res = 0;
-  res += fprintf(out, "    %-8s%s, %s", "rrmovq", r1, r2);
-  res += commentHandler(bigNibble, littleNibble, nextBytes, bytesNeeded, out);
+  res += fprintf(out, "    %-8s%s, %s \n", "rrmovq", r1, r2);
   return res;
 }
 
@@ -56,8 +55,7 @@ int printIRMovQ(FILE *out, char *reg, int bigNibble, int littleNibble,
                 int *nextBytes, int bytesNeeded) {
   int res = 0;
   unsigned long value = getInstructionValue(nextBytes, 0);
-  res += fprintf(out, "    %-8s$0x%lx, %s", "irmovq", value, reg);
-  res += commentHandler(bigNibble, littleNibble, nextBytes, bytesNeeded, out);
+  res += fprintf(out, "    %-8s$0x%lx, %s \n", "irmovq", value, reg);
   return res;
 }
 
@@ -66,8 +64,7 @@ int printRMMovQ(FILE *out, char *r1, char *r2, int bigNibble, int littleNibble,
                 int *nextBytes, int bytesNeeded) {
   int res = 0;
   unsigned long disp = getInstructionValue(nextBytes, 0);
-  res += fprintf(out, "    %-8s%s, 0x%lx(%s)", "rmmovq", r1, disp, r2);
-  res += commentHandler(bigNibble, littleNibble, nextBytes, bytesNeeded, out);
+  res += fprintf(out, "    %-8s%s, 0x%lx(%s) \n", "rmmovq", r1, disp, r2);
   return res;
 }
 
@@ -76,8 +73,7 @@ int printMRMovQ(FILE *out, char *r1, char *r2, int bigNibble, int littleNibble,
                 int *nextBytes, int bytesNeeded) {
   int res = 0;
   unsigned long disp = getInstructionValue(nextBytes, 0);
-  res += fprintf(out, "    %-8s0x%lx(%s), %s", "mrmovq", disp, r1, r2);
-  res += commentHandler(bigNibble, littleNibble, nextBytes, bytesNeeded, out);
+  res += fprintf(out, "    %-8s0x%lx(%s), %s \n", "mrmovq", disp, r1, r2);
   return res;
 }
 
@@ -85,8 +81,7 @@ int printMRMovQ(FILE *out, char *r1, char *r2, int bigNibble, int littleNibble,
 int printOpQ(FILE *out, char *instr, char *r1, char *r2, int bigNibble,
              int littleNibble, int *nextBytes, int bytesNeeded) {
   int res = 0;
-  res += fprintf(out, "    %-8s%s, %s", instr, r1, r2);
-  res += commentHandler(bigNibble, littleNibble, nextBytes, bytesNeeded, out);
+  res += fprintf(out, "    %-8s%s, %s \n", instr, r1, r2);
   return res;
 }
 
@@ -95,8 +90,7 @@ int printJXX(FILE *out, char *jmpInstr, int bigNibble, int littleNibble,
              int *nextBytes, int bytesNeeded) {
   int res = 0;
   unsigned long dest = getInstructionValue(nextBytes, 0);
-  res += fprintf(out, "    %-8s0x%lx", jmpInstr, dest);
-  res += commentHandler(bigNibble, littleNibble, nextBytes, bytesNeeded, out);
+  res += fprintf(out, "    %-8s0x%lx \n", jmpInstr, dest);
   return res;
 }
 
@@ -104,8 +98,7 @@ int printJXX(FILE *out, char *jmpInstr, int bigNibble, int littleNibble,
 int printCMovXX(FILE *out, char *instr, char *r1, char *r2, int bigNibble,
                 int littleNibble, int *nextBytes, int bytesNeeded) {
   int res = 0;
-  res += fprintf(out, "    %-8s%s, %s", instr, r1, r2);
-  res += commentHandler(bigNibble, littleNibble, nextBytes, bytesNeeded, out);
+  res += fprintf(out, "    %-8s%s, %s \n", instr, r1, r2);
   return res;
 }
 
@@ -114,8 +107,7 @@ int printCall(FILE *out, int bigNibble, int littleNibble, int *nextBytes,
               int bytesNeeded) {
   int res = 0;
   unsigned long dest = getInstructionValue(nextBytes, 0);
-  res += fprintf(out, "    %-8s0x%lx", "call", dest);
-  res += commentHandler(bigNibble, littleNibble, nextBytes, bytesNeeded, out);
+  res += fprintf(out, "    %-8s0x%lx \n", "call", dest);
   return res;
 }
 
@@ -123,8 +115,7 @@ int printCall(FILE *out, int bigNibble, int littleNibble, int *nextBytes,
 int printPushQ(FILE *out, char *r1, int bigNibble, int littleNibble,
                int *nextBytes, int bytesNeeded) {
   int res = 0;
-  res += fprintf(out, "    %-8s%s", "pushq", r1);
-  res += commentHandler(bigNibble, littleNibble, nextBytes, bytesNeeded, out);
+  res += fprintf(out, "    %-8s%s \n", "pushq", r1);
   return res;
 }
 
@@ -132,14 +123,14 @@ int printPushQ(FILE *out, char *r1, int bigNibble, int littleNibble,
 int printPopQ(FILE *out, char *r1, int bigNibble, int littleNibble,
               int *nextBytes, int bytesNeeded) {
   int res = 0;
-  res += fprintf(out, "    %-8s%s", "popq", r1);
-  res += commentHandler(bigNibble, littleNibble, nextBytes, bytesNeeded, out);
+  res += fprintf(out, "    %-8s%s \n", "popq", r1);
+  // res += commentHandler(bigNibble, littleNibble, nextBytes, bytesNeeded, out);
   return res;
 }
 
 // print for .byte 0x0
 int printByte(FILE *out, int bigNibble, int littleNibble) {
-  return fprintf(out, "     %-8s0x%x%x\n", ".byte", bigNibble, littleNibble);
+  return fprintf(out, "    %-8s0x%x%x\n", ".byte", bigNibble, littleNibble);
 }
 
 // print for .quad 0x0
